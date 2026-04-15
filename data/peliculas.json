@@ -53,12 +53,12 @@
   },
   {
     "id": 5,
-    "titulo": "Scary Movie 7",
-    "imagen": "scary-movie-7.jpg",
-    "generos": [2, 4],
-    "sinopsis": "En Scary Movie 7, la pandilla de amigos regresa para enfrentar nuevos terrores en una comedia desopilante que parodia las películas de horror más recientes. Cindy Campbell, Greg, Brenda y los demás se ven envueltos en una serie de situaciones absurdas y sangrientas, desde casas embrujadas hasta invasiones alienígenas. Con chistes incesantes, cameos inesperados y referencias a blockbusters del género, la película no da tregua al humor negro y las situaciones ridículas. Mientras intentan sobrevivir a una noche de pesadillas, los personajes cuestionan la realidad y el sentido del miedo. Dirigida con el mismo estilo caótico, Scary Movie 7 combina slapstick, sátira social y efectos especiales exagerados para entregar risas garantizadas. Es una oda al cine de terror, donde nada es sagrado y el terror se convierte en comedia pura.",
-    "trailer": "https://www.youtube.com/embed/example-trailer",
-    "estreno": "2026-06-01",
+    "titulo": "Mortal Kombat 2",
+    "imagen": "MortalKombat2.jpg",
+    "generos": [1, 7],
+    "sinopsis": "Mortal Kombat 2 continúa la batalla épica entre guerreros de diferentes reinos. Liu Kang y sus aliados deben enfrentar nuevas amenazas mientras defienden la Tierra de fuerzas oscuras provenientes de otros mundos. Con combates espectaculares, personajes icónicos y fatalities devastadores, la película lleva la experiencia del videojuego a nuevos niveles de acción e intensidad. Los guerreros deben entrenar, mejorar sus habilidades especiales y luchar por la supremacía en torneos donde la victoria significa supervivencia. Con efectos visuales de última generación, coreografía de artes marciales de clase mundial y una narrativa inmersiva, Mortal Kombat 2 promete una aventura épica llena de duelos legendarios, sacrificios personales y la lucha entre el bien y el mal. El destino de todos los reinos está en juego.",
+    "trailer": "https://www.youtube.com/embed/_5RFjYeWSls",
+    "estreno": "2026-05-15",
     "precios": {
       "estreno": 15.00,
       "normal": 10.00

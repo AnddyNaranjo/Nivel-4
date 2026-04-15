@@ -14,8 +14,11 @@
       <div class="text-center mb-4">
         <h2 id="titulo" class="mb-3"></h2>
 
+        <!-- Badge dinámico de estado -->
+        <div id="estado-badge" class="mb-3"></div>
+
         <!-- Componente: Alerta informativa -->
-        <div class="alert alert-info" role="alert">
+        <div id="estado-alert" class="alert alert-info" role="alert">
           ¡Disfruta del tráiler oficial y conoce más sobre esta película!
         </div>
 
@@ -47,8 +50,7 @@
               <!-- Precios -->
               <p class="card-text mt-2"><strong id="precio-actual"></strong></p>
               <p class="card-text"><strong>Estreno:</strong> <span id="estreno"></span></p>
-              <p class="card-text"><strong>Precio estreno:</strong> <span id="precio-estreno"></span></p>
-              <p class="card-text"><strong>Precio normal:</strong> <span id="precio-normal"></span></p>
+              
             </div>
           </div>
         </div>
@@ -97,8 +99,17 @@
                   let precioMostrar = esEstreno ? peli.precios.estreno : peli.precios.normal;
                   let etiquetaPrecio = esEstreno ? "Precio estreno" : "Precio normal";
                   $("#precio-actual").text(etiquetaPrecio + ": $" + precioMostrar.toFixed(2));
-                  $("#precio-estreno").text("$" + peli.precios.estreno.toFixed(2));
-                  $("#precio-normal").text("$" + peli.precios.normal.toFixed(2));
+
+                  let badgeClass = esEstreno ? "bg-danger" : "bg-success";
+                  let badgeText = esEstreno ? "Estreno" : "Cartelera regular";
+                  $("#estado-badge").html(`<span class="badge ${badgeClass} fs-6">${badgeText}</span>`);
+
+                  let alertClass = esEstreno ? "alert-warning" : "alert-primary";
+                  let estadoTexto = esEstreno ? "Esta película es un estreno. Aprovecha el precio especial: " : "Esta película ya está en cartelera regular. A precio de: ";
+                  $("#estado-alert")
+                    .removeClass("alert-info alert-warning alert-primary")
+                    .addClass(alertClass)
+                    .text(`${estadoTexto} $${precioMostrar.toFixed(2)}`);
                 } else {
                   mostrarError();
                 }
