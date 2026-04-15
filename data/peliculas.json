@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "titulo": "Dune",
+    "imagen": "dune.jpg",
+    "generos": [7],
+    "sinopsis": "Un joven emprende una misión para salvar su mundo.",
+    "trailer": "https://www.youtube.com/embed/mSY_NbSmaUI",
+    "estreno": "2021-10-22",
+    "precios": {
+      "estreno": 15.00,
+      "normal": 10.00
+    }
+  },
+  {
+    "id": 2,
+    "titulo": "50 primeras citas",
+    "imagen": "50-primeras-citas.jpg",
+    "generos": [2],
+    "sinopsis": "Henry se enamora de Lucy, una mujer con pérdida de memoria a corto plazo.",
+    "trailer": "https://www.youtube.com/embed/17KJk3ErIx0",
+    "estreno": "2004-04-23",
+    "precios": {
+      "estreno": 15.00,
+      "normal": 10.00
+    }
+  },
+  {
+    "id": 3,
+    "titulo": "Batman Caballero de la Noche",
+    "imagen": "batman-caballero-de-la-noche.webp",
+    "generos": [1],
+    "sinopsis": "La película comienza con el violento robo de uno de los bancos de la mafia por una banda de payasos.",
+    "trailer": "https://www.youtube.com/embed/dzQtWkpc2-c",
+    "estreno": "2008-07-18",
+    "precios": {
+      "estreno": 15.00,
+      "normal": 10.00
+    }
+  },
+  {
+    "id": 4,
+    "titulo": "Inception",
+    "imagen": "inception.jpg",
+    "generos": [5, 7],
+    "sinopsis": "Dom Cobb es un ladrón hábil, el mejor en el arte peligroso de la extracción: robar secretos valiosos desde lo más profundo del subconsciente durante el estado de sueño, cuando la mente es más vulnerable. La rara habilidad de Cobb le ha hecho un jugador codiciado en el mundo del espionaje corporativo, pero también le ha convertido en un fugitivo internacional y le ha costado todo lo que alguna vez amó. Ahora Cobb recibe una oportunidad para redimirse. Un último trabajo podría devolverle su vida anterior, pero solo si logra lo imposible: la 'incepción'. En lugar de robar un pensamiento, Cobb y su equipo de especialistas deben implantar una idea en la mente de un hombre. Si tienen éxito, podría ser el crimen perfecto. Pero ningún trabajo ha sido más arriesgado. A medida que se adentran más en el sueño compartido, el equipo comienza a cuestionar la realidad y la cordura de Cobb, mientras que un enemigo inesperado parece predecir cada movimiento que hacen.",
+    "trailer": "https://www.youtube.com/embed/YoHD9XEInc0",
+    "estreno": "2010-07-16",
+    "precios": {
+      "estreno": 15.00,
+      "normal": 10.00
+    }
+  },
+  {
+    "id": 5,
+    "titulo": "Scary Movie 7",
+    "imagen": "scary-movie-7.jpg",
+    "generos": [2, 4],
+    "sinopsis": "En Scary Movie 7, la pandilla de amigos regresa para enfrentar nuevos terrores en una comedia desopilante que parodia las películas de horror más recientes. Cindy Campbell, Greg, Brenda y los demás se ven envueltos en una serie de situaciones absurdas y sangrientas, desde casas embrujadas hasta invasiones alienígenas. Con chistes incesantes, cameos inesperados y referencias a blockbusters del género, la película no da tregua al humor negro y las situaciones ridículas. Mientras intentan sobrevivir a una noche de pesadillas, los personajes cuestionan la realidad y el sentido del miedo. Dirigida con el mismo estilo caótico, Scary Movie 7 combina slapstick, sátira social y efectos especiales exagerados para entregar risas garantizadas. Es una oda al cine de terror, donde nada es sagrado y el terror se convierte en comedia pura.",
+    "trailer": "https://www.youtube.com/embed/example-trailer",
+    "estreno": "2026-06-01",
+    "precios": {
+      "estreno": 15.00,
+      "normal": 10.00
+    }
+  },
+  {
+    "id": 6,
+    "titulo": "Avatar",
+    "imagen": "avatar.jpg",
+    "generos": [5, 7],
+    "sinopsis": "En el año 2154, Jake Sully, un exmarine parapléjico, es reclutado para participar en el programa Avatar en Pandora, un exuberante planeta habitado por los Na'vi, una especie humanoide nativa. A través de un enlace neural, Jake controla un cuerpo avatar híbrido diseñado genéticamente para interactuar con los Na'vi. Su misión inicial es infiltrarse en la tribu para recopilar información sobre los recursos minerales valiosos del planeta, pero pronto se encuentra dividido entre su lealtad a la corporación humana y su creciente empatía por los Na'vi. Jake forma un vínculo especial con Neytiri, una guerrera Na'vi, y aprende sobre su cultura, espiritualidad y conexión con la naturaleza. Cuando la corporación decide destruir el hogar de los Na'vi para extraer unobtainium, Jake debe elegir un bando. La película destaca temas ambientales, colonialismo y la importancia de la armonía con la naturaleza, utilizando efectos visuales revolucionarios para crear un mundo alienígena vibrante y detallado.",
+    "trailer": "https://www.youtube.com/embed/5PSNL1qE6VY",
+    "estreno": "2009-12-18",
+    "precios": {
+      "estreno": 15.00,
+      "normal": 10.00
+    }
+  },
+  {
+    "id": 7,
+    "titulo": "Avengers: Endgame",
+    "imagen": "avengers-endgame.jpg",
+    "generos": [1, 7],
+    "sinopsis": "Después de los devastadores eventos de Avengers: Infinity War, el universo está en ruinas debido a las acciones de Thanos, el Titán Loco. Con la ayuda de los aliados restantes, los Vengadores se embarcan en una misión desesperada para deshacer el chasquido de Thanos y restaurar el orden en el universo. Viajando a través del tiempo y el espacio, el equipo enfrenta desafíos épicos, incluyendo batallas contra versiones alternativas de sí mismos y aliados perdidos. Tony Stark, Steve Rogers, Thor y los demás deben confrontar sus pérdidas personales mientras luchan por la esperanza. La película culmina en una batalla final masiva que determina el destino de la humanidad. Endgame explora temas de sacrificio, legado y el poder de la amistad, cerrando arcos narrativos de más de una década de películas del Universo Cinematográfico de Marvel. Con efectos especiales espectaculares y cameos emocionantes, la cinta ofrece un cierre satisfactorio a la saga de los Vengadores.",
+    "trailer": "https://www.youtube.com/embed/TcMBFSGVi1c",
+    "estreno": "2019-04-26",
+    "precios": {
+      "estreno": 15.00,
+      "normal": 10.00
+    }
+  },
+  {
+    "id": 8,
+    "titulo": "Dune: Part Two",
+    "imagen": "dune-part-two.jpg",
+    "generos": [5, 7],
+    "sinopsis": "Paul Atreides continúa su viaje épico en el desierto de Arrakis, el planeta más peligroso del universo. Después de la traición que destruyó a su familia, Paul se une a Chani y los Fremen en su lucha contra el Imperio y las fuerzas Harkonnen. Desarrollando poderes proféticos gracias a la especia melange, Paul se convierte en Muad'Dib, un líder mesiánico que inspira a los Fremen en una guerra santa. Mientras enfrenta dilemas morales sobre el poder y la venganza, Paul debe decidir si abrazar su destino como el salvador predicho o rechazar el ciclo de violencia. La secuela profundiza en la ecología de Arrakis, la política interplanetaria y la espiritualidad de los Fremen. Con visuales deslumbrantes, criaturas exóticas y una banda sonora inmersiva, Dune: Part Two explora temas de destino, identidad y la lucha por la libertad en un universo vasto y hostil. La narrativa se acelera hacia un clímax que redefine el legado de Paul y el futuro de Dune.",
+    "trailer": "https://www.youtube.com/embed/Way9Dexny3w",
+    "estreno": "2024-03-01",
+    "precios": {
+      "estreno": 15.00,
+      "normal": 10.00
+    }
+  },
+  {
+    "id": 9,
+    "titulo": "Demon Slayer: Kimetsu no Yaiba - Mugen Train",
+    "imagen": "demon-slayer.jpg",
+    "generos": [8, 1, 7],
+    "sinopsis": "Tanjiro Kamado, un joven vendedor de carbón, pierde a su familia a manos de un demonio. Su hermana menor, Nezuko, se convierte en demonio pero conserva su humanidad. Tanjiro se une a los Cazadores de Demonios para vengarse y encontrar una cura. En el Castillo del Infinito, un laberinto demoníaco creado por Muzan Kibutsuji, Tanjiro y sus compañeros enfrentan ilusiones y demonios poderosos. La película explora temas de familia, sacrificio y la lucha contra el mal. Con animación espectacular, batallas intensas y una banda sonora emotiva, Mugen Train es una adaptación fiel del manga, destacando el crecimiento de los personajes y la profundidad emocional de la historia. Los espectadores son transportados a un mundo de samuráis, demonios y poderes sobrenaturales, donde la esperanza brilla en la oscuridad.",
+    "trailer": "https://www.youtube.com/embed/ATJYac_dORw",
+    "estreno": "2020-10-16",
+    "precios": {
+      "estreno": 15.00,
+      "normal": 10.00
+    }
+  }
+]

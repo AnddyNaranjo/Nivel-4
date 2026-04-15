@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Detalle de Película</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="text-center mb-4">
+        <h2 id="titulo" class="mb-3"></h2>
+
+        <!-- Componente: Alerta informativa -->
+        <div class="alert alert-info" role="alert">
+          ¡Disfruta del tráiler oficial y conoce más sobre esta película!
+        </div>
+
+        <!-- Tráiler embebido -->
+        <div class="ratio ratio-16x9 mb-4">
+          <iframe id="trailer" src="" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Tarjeta con sinopsis e imagen -->
+      <div class="card mb-4">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              id="poster"
+              src=""
+              class="img-fluid rounded-start"
+              alt="Poster de la película"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Sinopsis</h5>
+              <p id="sinopsis" class="card-text"></p>
+
+              <!-- Componente: Badge de género -->
+              <span id="genero" class="badge bg-secondary"></span>
+
+              <!-- Precios -->
+              <p class="card-text mt-2"><strong id="precio-actual"></strong></p>
+              <p class="card-text"><strong>Estreno:</strong> <span id="estreno"></span></p>
+              <p class="card-text"><strong>Precio estreno:</strong> <span id="precio-estreno"></span></p>
+              <p class="card-text"><strong>Precio normal:</strong> <span id="precio-normal"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="../index.html" class="btn btn-secondary">Volver al inicio</a>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
+
+        // Cargar géneros primero
+        $.ajax({
+          url: "../data/generos_pelis.json",
+          method: "GET",
+          dataType: "json",
+          success: function (generos) {
+            // Luego cargar películas
+            $.ajax({
+              url: "../data/peliculas.json",
+              method: "GET",
+              dataType: "json",
+              success: function (peliculas) {
+                const peli = peliculas.find((p) => p.id == id);
+                if (peli) {
+                  $("#titulo").text(peli.titulo);
+                  $("#poster").attr("src", "../img/" + peli.imagen);
+                  $("#sinopsis").text(peli.sinopsis);
+                  $("#trailer").attr("src", peli.trailer);
+                  // Mapear géneros
+                  let nombresGeneros = peli.generos.map(id => {
+                    let genero = generos.find(g => g.id === id);
+                    return genero ? genero.nombre : "Desconocido";
+                  }).join(", ");
+                  $("#genero").text(nombresGeneros);
+                  $("#estreno").text(peli.estreno);
+                  // Calcular precio basado en fecha
+                  let fechaActual = new Date();
+                  let fechaEstreno = new Date(peli.estreno);
+                  let esEstreno = fechaActual < fechaEstreno;
+                  let precioMostrar = esEstreno ? peli.precios.estreno : peli.precios.normal;
+                  let etiquetaPrecio = esEstreno ? "Precio estreno" : "Precio normal";
+                  $("#precio-actual").text(etiquetaPrecio + ": $" + precioMostrar.toFixed(2));
+                  $("#precio-estreno").text("$" + peli.precios.estreno.toFixed(2));
+                  $("#precio-normal").text("$" + peli.precios.normal.toFixed(2));
+                } else {
+                  mostrarError();
+                }
+              },
+              error: function () {
+                mostrarError();
+              },
+            });
+          },
+          error: function () {
+            mostrarError();
+          },
+        });
+
+        function mostrarError() {
+          $("#detalle-pelicula").html(`
+          <div class="alert alert-danger text-center" role="alert">
+            No se pudo cargar la información de la película.
+          </div>
+          <div class="text-center">
+            <a href="../index.html" class="btn btn-secondary mt-3">Volver al inicio</a>
+          </div>
+        `);
+        }
+      });
+    </script>
+  </body>
+</html>
