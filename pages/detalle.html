@@ -10,7 +10,20 @@
     />
   </head>
   <body>
-    <div class="container py-5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">CinePlus</a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="renta.html">Renta</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-5" id="detalle-pelicula">
       <div class="text-center mb-4">
         <h2 id="titulo" class="mb-3"></h2>
 
@@ -52,6 +65,15 @@
               <p class="card-text"><strong>Estreno:</strong> <span id="estreno"></span></p>
               
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Reseñas</h5>
+          <div id="reseñas-lista">
+            <p class="text-muted">Cargando reseñas...</p>
           </div>
         </div>
       </div>
@@ -110,6 +132,8 @@
                     .removeClass("alert-info alert-warning alert-primary")
                     .addClass(alertClass)
                     .text(`${estadoTexto} $${precioMostrar.toFixed(2)}`);
+
+                  cargarResenas(peli.id, esEstreno);
                 } else {
                   mostrarError();
                 }
@@ -133,6 +157,59 @@
             <a href="../index.html" class="btn btn-secondary mt-3">Volver al inicio</a>
           </div>
         `);
+        }
+
+        function cargarResenas(peliculaId, esEstreno) {
+          if (esEstreno) {
+            $("#reseñas-lista").html(
+              '<p class="text-muted">Esta película está de estreno y aún no tiene reseñas.</p>'
+            );
+            return;
+          }
+
+          $.ajax({
+            url: "../data/reseñas.json",
+            method: "GET",
+            dataType: "json",
+            success: function (reseñas) {
+              let reseñasPorPelicula = reseñas.filter((r) => r.movieId == peliculaId);
+              if (reseñasPorPelicula.length === 0) {
+                $("#reseñas-lista").html(
+                  '<p class="text-muted">Aún no hay reseñas para esta película.</p>'
+                );
+                return;
+              }
+
+              let html = reseñasPorPelicula
+                .map((reseña) => {
+                  return `
+                    <div class="mb-3 border rounded p-3">
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <strong>${reseña.nombre}</strong>
+                        <span>${renderEstrellas(reseña.calificacion)}</span>
+                      </div>
+                      <p class="mb-1">${reseña.comentario}</p>
+                      <small class="text-muted">${reseña.fecha}</small>
+                    </div>`;
+                })
+                .join("");
+
+              $("#reseñas-lista").html(html);
+            },
+            error: function () {
+              $("#reseñas-lista").html(
+                '<p class="text-danger">No se pudieron cargar las reseñas.</p>'
+              );
+            },
+          });
+        }
+
+        function renderEstrellas(valor) {
+          let estrellas = "";
+          for (let i = 1; i <= 5; i++) {
+            estrellas += i <= valor ? "★" : "☆";
+          }
+          return `<span class="text-warning">${estrellas}</span>`;
         }
       });
     </script>

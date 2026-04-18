@@ -1,0 +1,218 @@
+[
+  {
+    "id": 1,
+    "movieId": 1,
+    "nombre": "Ana Martínez",
+    "comentario": "Una experiencia visual impresionante y una historia poderosa.",
+    "calificacion": 5,
+    "fecha": "2026-03-01"
+  },
+  {
+    "id": 2,
+    "movieId": 1,
+    "nombre": "Carlos Gómez",
+    "comentario": "La acción es impresionante, pero el ritmo a veces es lento.",
+    "calificacion": 4,
+    "fecha": "2026-03-05"
+  },
+  {
+    "id": 3,
+    "movieId": 1,
+    "nombre": "Lucía Herrera",
+    "comentario": "Me encantaron los efectos y la ambientación futurista.",
+    "calificacion": 5,
+    "fecha": "2026-03-10"
+  },
+  {
+    "id": 4,
+    "movieId": 2,
+    "nombre": "Diego Reyes",
+    "comentario": "Muy divertida y con momentos conmovedores.",
+    "calificacion": 4,
+    "fecha": "2026-02-12"
+  },
+  {
+    "id": 5,
+    "movieId": 2,
+    "nombre": "María López",
+    "comentario": "Buen reparto, aunque esperaba más originalidad.",
+    "calificacion": 3,
+    "fecha": "2026-02-15"
+  },
+  {
+    "id": 6,
+    "movieId": 2,
+    "nombre": "Sofía Ramírez",
+    "comentario": "Una comedia romántica agradable para ver en pareja.",
+    "calificacion": 4,
+    "fecha": "2026-02-20"
+  },
+  {
+    "id": 7,
+    "movieId": 3,
+    "nombre": "Miguel Díaz",
+    "comentario": "El Joker es mi villano favorito y la película es muy intensa.",
+    "calificacion": 5,
+    "fecha": "2026-01-22"
+  },
+  {
+    "id": 8,
+    "movieId": 3,
+    "nombre": "Natalia Castro",
+    "comentario": "Excelente actuación, aunque la historia es oscura.",
+    "calificacion": 4,
+    "fecha": "2026-01-25"
+  },
+  {
+    "id": 9,
+    "movieId": 3,
+    "nombre": "Pedro Salas",
+    "comentario": "Me atrapó desde el primer minuto. Muy recomendable.",
+    "calificacion": 5,
+    "fecha": "2026-01-29"
+  },
+  {
+    "id": 10,
+    "movieId": 4,
+    "nombre": "Carla Paredes",
+    "comentario": "Una trama inteligente, con giros que mantienen la tensión.",
+    "calificacion": 5,
+    "fecha": "2026-04-02"
+  },
+  {
+    "id": 11,
+    "movieId": 4,
+    "nombre": "Javier Núñez",
+    "comentario": "Muy buena, aunque algunos detalles quedan abiertos.",
+    "calificacion": 4,
+    "fecha": "2026-04-05"
+  },
+  {
+    "id": 12,
+    "movieId": 4,
+    "nombre": "Elena Saavedra",
+    "comentario": "La mezcla de ciencia ficción y emociones es excelente.",
+    "calificacion": 5,
+    "fecha": "2026-04-10"
+  },
+  {
+    "id": 13,
+    "movieId": 5,
+    "nombre": "Hugo Flores",
+    "comentario": "Perfecta para los fans de la saga y los combates épicos.",
+    "calificacion": 4,
+    "fecha": "2026-05-20"
+  },
+  {
+    "id": 14,
+    "movieId": 5,
+    "nombre": "Camila Ortiz",
+    "comentario": "Acción muy visual, aunque el guion podía ser más profundo.",
+    "calificacion": 3,
+    "fecha": "2026-05-22"
+  },
+  {
+    "id": 15,
+    "movieId": 5,
+    "nombre": "Samuel Peña",
+    "comentario": "Me gustaron los personajes y los combates fantásticos.",
+    "calificacion": 4,
+    "fecha": "2026-05-25"
+  },
+  {
+    "id": 16,
+    "movieId": 6,
+    "nombre": "Valentina Rojas",
+    "comentario": "Una aventura visual asombrosa, aunque algo larga.",
+    "calificacion": 4,
+    "fecha": "2026-06-02"
+  },
+  {
+    "id": 17,
+    "movieId": 6,
+    "nombre": "Felipe Torres",
+    "comentario": "Los efectos son increíbles y la historia es emocionante.",
+    "calificacion": 5,
+    "fecha": "2026-06-05"
+  },
+  {
+    "id": 18,
+    "movieId": 6,
+    "nombre": "Isabel Cruz",
+    "comentario": "Hermosa película, con un mensaje ambiental muy claro.",
+    "calificacion": 4,
+    "fecha": "2026-06-08"
+  },
+  {
+    "id": 19,
+    "movieId": 7,
+    "nombre": "Joaquín Vega",
+    "comentario": "Una conclusión épica y emocionante para la saga.",
+    "calificacion": 5,
+    "fecha": "2026-07-10"
+  },
+  {
+    "id": 20,
+    "movieId": 7,
+    "nombre": "Florencia Medina",
+    "comentario": "Me encantaron los momentos de equipo y el final.",
+    "calificacion": 5,
+    "fecha": "2026-07-12"
+  },
+  {
+    "id": 21,
+    "movieId": 7,
+    "nombre": "Andrés Patiño",
+    "comentario": "Muy entretenida, aunque algunos personajes se quedaron cortos.",
+    "calificacion": 4,
+    "fecha": "2026-07-15"
+  },
+  {
+    "id": 22,
+    "movieId": 8,
+    "nombre": "Renata Jiménez",
+    "comentario": "Trama profunda y visualmente hermosa. Se siente como un sueño.",
+    "calificacion": 5,
+    "fecha": "2026-08-02"
+  },
+  {
+    "id": 23,
+    "movieId": 8,
+    "nombre": "Marcos Álvarez",
+    "comentario": "Una secuela que respeta al público y expande el universo.",
+    "calificacion": 4,
+    "fecha": "2026-08-05"
+  },
+  {
+    "id": 24,
+    "movieId": 8,
+    "nombre": "Patricia Silva",
+    "comentario": "Me gustó el crecimiento de Paul y la estética del film.",
+    "calificacion": 4,
+    "fecha": "2026-08-08"
+  },
+  {
+    "id": 25,
+    "movieId": 9,
+    "nombre": "Alberto Ruiz",
+    "comentario": "Una historia emocionante y bien contada desde el inicio.",
+    "calificacion": 5,
+    "fecha": "2026-09-10"
+  },
+  {
+    "id": 26,
+    "movieId": 9,
+    "nombre": "Marta Blanco",
+    "comentario": "Excelente animación y una conexión muy emotiva con los personajes.",
+    "calificacion": 5,
+    "fecha": "2026-09-12"
+  },
+  {
+    "id": 27,
+    "movieId": 9,
+    "nombre": "Óscar Navarro",
+    "comentario": "Muy bien realizada, perfecta para fans del anime.",
+    "calificacion": 4,
+    "fecha": "2026-09-15"
+  }
+]

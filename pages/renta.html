@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Renta de Películas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CinePlus</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="renta.html">Renta</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white text-center p-4">
+    <h1>Renta de Películas</h1>
+    <p class="lead">Selecciona las películas que deseas alquilar</p>
+  </header>
+
+  <main class="container py-4">
+    <form id="form-renta">
+      <div class="mb-3">
+        <label for="cliente" class="form-label">Nombre del Cliente</label>
+        <input type="text" class="form-control" id="cliente" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Selecciona las Películas</label>
+        <div id="lista-peliculas-renta" class="row">
+          <!-- Películas cargadas dinámicamente -->
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="dias" class="form-label">Número de Días de Renta</label>
+        <input type="number" class="form-control" id="dias" min="1" value="1" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="pago" class="form-label">Forma de Pago</label>
+        <select class="form-select" id="pago" required>
+          <option value="">Selecciona...</option>
+          <option value="efectivo">Efectivo</option>
+          <option value="tarjeta">Tarjeta de Crédito</option>
+          <option value="transferencia">Transferencia Bancaria</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Confirmar Renta</button>
+    </form>
+  </main>
+
+  <!-- Modal de Confirmación -->
+  <div class="modal fade" id="modal-confirmacion" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmación de Renta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Cliente:</strong> <span id="modal-cliente"></span></p>
+          <p><strong>Películas:</strong> <span id="modal-peliculas"></span></p>
+          <p><strong>Días de Renta:</strong> <span id="modal-dias"></span></p>
+          <p><strong>Forma de Pago:</strong> <span id="modal-pago"></span></p>
+          <p><strong>Total a Pagar:</strong> $<span id="modal-total"></span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-success">Confirmar Pago</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-center text-white py-3">
+    <small>&copy; 2024 CinePlus. Todos los derechos reservados.</small>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      let generos = [];
+      let peliculas = [];
+
+      // Cargar géneros primero
+      $.ajax({
+        url: "../data/generos_pelis.json",
+        method: "GET",
+        dataType: "json",
+        success: function (dataGeneros) {
+          generos = dataGeneros;
+
+          // Luego cargar películas
+          $.ajax({
+            url: "../data/peliculas.json",
+            method: "GET",
+            dataType: "json",
+            success: function (dataPeliculas) {
+              peliculas = dataPeliculas;
+              let html = "";
+              peliculas.forEach(function (peli) {
+                // Mapear géneros
+                let nombresGeneros = peli.generos.map(id => {
+                  let genero = generos.find(g => g.id === id);
+                  return genero ? genero.nombre : "Desconocido";
+                }).join(", ");
+
+                html += `
+                  <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                      <img src="../img/${peli.imagen}" class="card-img-top" alt="${peli.titulo}">
+                      <div class="card-body">
+                        <h6 class="card-title">${peli.titulo}</h6>
+                        <p class="card-text">${nombresGeneros}</p>
+                        <p class="card-text">Precio diario: $${(peli.precios.normal / 10).toFixed(2)}</p>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="${peli.id}" id="peli-${peli.id}">
+                          <label class="form-check-label" for="peli-${peli.id}">
+                            Seleccionar
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>`;
+              });
+              $("#lista-peliculas-renta").html(html);
+            },
+            error: function () {
+              $("#lista-peliculas-renta").html('<p class="text-danger">Error al cargar películas.</p>');
+            }
+          });
+        },
+        error: function () {
+          $("#lista-peliculas-renta").html('<p class="text-danger">Error al cargar géneros.</p>');
+        }
+      });
+
+      // Manejar envío del formulario
+      $("#form-renta").on("submit", function (e) {
+        e.preventDefault();
+
+        let cliente = $("#cliente").val();
+        let dias = parseInt($("#dias").val());
+        let pago = $("#pago").val();
+        let peliculasSeleccionadas = [];
+        let total = 0;
+
+        $("input[type=checkbox]:checked").each(function () {
+          let id = $(this).val();
+          let peli = peliculas.find(p => p.id == id);
+          if (peli) {
+            peliculasSeleccionadas.push(peli.titulo);
+            // Precio diario: precio normal / 10 (ejemplo)
+            total += (peli.precios.normal / 10) * dias;
+          }
+        });
+
+        if (peliculasSeleccionadas.length === 0) {
+          alert("Selecciona al menos una película.");
+          return;
+        }
+
+        // Llenar modal
+        $("#modal-cliente").text(cliente);
+        $("#modal-peliculas").text(peliculasSeleccionadas.join(", "));
+        $("#modal-dias").text(dias);
+        $("#modal-pago").text(pago);
+        $("#modal-total").text(total.toFixed(2));
+
+        // Mostrar modal
+        $("#modal-confirmacion").modal("show");
+      });
+    });
+  </script>
+</body>
+</html>

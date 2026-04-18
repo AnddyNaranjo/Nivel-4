@@ -1,4 +1,12 @@
 $(document).ready(function () {
+  //localStorage.removeItem('bienvenidaMostrada');  
+  // Alerta de bienvenida que aparece solo una vez
+  if (!localStorage.getItem('bienvenidaMostrada')) {
+    console.log('Mostrando alerta de bienvenida');
+    alert('¡Bienvenido a CinePlus!');
+    localStorage.setItem('bienvenidaMostrada', 'true');
+  }
+
   let generos = [];
   const spinnerHtml = `
       <div class="col-12 text-center py-5">
@@ -56,7 +64,7 @@ $(document).ready(function () {
 
             html += `
                 <div class="col-md-4">
-                  <div class="card h-100 shadow">
+                  <div class="card h-100 shadow" style="display: none;">
                     <img src="img/${peli.imagen}" class="card-img-top" alt="${peli.titulo}">
                     <div class="card-body">
                       <h5 class="card-title">${peli.titulo}</h5>
@@ -64,6 +72,7 @@ $(document).ready(function () {
                       <p class="card-text">${sinopsisTruncada}</p>
                       <p class="card-text"><strong>Estreno:</strong> ${peli.estreno}</p>
                       <p class="card-text"><strong>${etiquetaPrecio}:</strong> $${precioMostrar}</p>
+                      <button type="button" class="btn btn-outline-secondary me-2 ver-trailer-btn" data-trailer="${peli.trailer}" data-title="${peli.titulo}">Ver tráiler</button>
                       <a href="pages/detalle.html?id=${peli.id}" class="btn btn-primary">Ver más</a>
                     </div>
                   </div>
@@ -72,6 +81,10 @@ $(document).ready(function () {
           setTimeout(() => {
             if (html) {
               $("#lista-peliculas").html(html);
+              // Aplicar animación fadeIn a cada tarjeta con retraso escalonado
+              $("#lista-peliculas .card").each(function(index) {
+                $(this).delay(index * 200).fadeIn(500);
+              });
             } else {
               $("#lista-peliculas").html(mensaje_error);
             }
@@ -90,4 +103,32 @@ $(document).ready(function () {
       console.error("Response:", xhr.responseText);
     },
   });
-});
+
+    $(document).on("click", ".ver-trailer-btn", function () {
+      const trailerUrl = obtenerEmbedUrl($(this).data("trailer"));
+      const titulo = $(this).data("title");
+      $("#modal-trailer-title").text(`Tráiler: ${titulo}`);
+      $("#modal-trailer-video").attr("src", trailerUrl);
+      const modalElement = document.getElementById("modal-trailer");
+      const modal = new bootstrap.Modal(modalElement);
+      modal.show();
+    });
+
+    $("#modal-trailer").on("hidden.bs.modal", function () {
+      $("#modal-trailer-video").attr("src", "");
+    });
+
+    function obtenerEmbedUrl(url) {
+      if (typeof url !== "string") {
+        return url;
+      }
+      if (url.includes("youtube.com/watch?v=")) {
+        return url.replace("watch?v=", "embed/");
+      }
+      if (url.includes("youtu.be/")) {
+        const videoId = url.split("youtu.be/")[1].split(/[?&]/)[0];
+        return `https://www.youtube.com/embed/${videoId}`;
+      }
+      return url;
+    }
+  });
